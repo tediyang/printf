@@ -7,41 +7,36 @@
  *
  * @format: param
  *
- * Return: 0
+ * Return: the total chars counted
  */
 
 int _printf(const char *format, ...)
 {
-	int a, n, c;
-	va_list arg;
+	int chars;
 
-	va_start(arg, format);
+	checker f_lists[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"b", print_binary},
+		{"r", print_reversed},
+		{"R", rot13},
+		{"u", unsigned_integer},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_heX},
+		{NULL, NULL}
+	};
+	va_list arg_list;
 
-	c = 0;
+	if (format == NULL)
+		return (-1);
 
-	while (format[c])
-		c++;
+	va_start(arg_list, format);
+	chars = parser(format, f_lists, arg_list);
+	va_end(arg_list);
 
-	for (a = 0; a < c; a++)
-	{
-		if (format[a] == '%' && format[a - 1] == '%')
-			_putchar(format[a]);
-		else if (format[a] == '%')
-			continue;
-		else if (format[a] == 'c' && format[a - 1] == '%')
-			_putchar(va_arg(arg, int));
-		else if (format[a] == 's' && format[a - 1] == '%')
-		{
-			char *p;
-
-			p = va_arg(arg, char *);
-			for (n = 0; p[n]; n++)
-			{
-				_putchar(p[n]);
-			}
-		}
-		else
-			_putchar(format[a]);
-	}
-	return (0);
+	return (char);
 }
