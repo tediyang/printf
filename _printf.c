@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 {
 	int chars;
 
-	checker f_lists[] = {
+	checker_t f_lists[] = {
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
@@ -38,5 +38,5 @@ int _printf(const char *format, ...)
 	chars = parser(format, f_lists, arg_list);
 	va_end(arg_list);
 
-	return (char);
+	return (chars);
 }
