@@ -96,7 +96,7 @@ int print_non_printable(va_list types, char buffer[],
 /************************* PRINT REVERSE *************************/
 /**
  * print_reverse - Prints reverse string.
- * @types: Lista of arguments
+ * @types: Lista of parameters 
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
