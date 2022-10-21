@@ -1,1 +1,1 @@
-This project is based on building printf function in C.
+This is my printf project.
