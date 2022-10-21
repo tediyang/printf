@@ -81,7 +81,7 @@ base.
  + overrides a space when both flags are given.
 .sp
 .B ' '
-- Prints a space in front of signed integers.
+- Print a space in front of signed integers.
 .sp
 .B #
 - Modifier for unsigned conversions. For x, prepends \(dq0x\(dq, and for X, prepends \(dq0X\(dq. For o, if the converted number doesn't already begin with a 0, prepends a 0.
